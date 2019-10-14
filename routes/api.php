@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['namespace' => 'Api', 'prefix' => 'v1', 'as' => 'api.v1.'], function () {
+    Route::patch('change-order', 'MenuController@changeOrderMenu')->name('change_order');
+    Route::get('menu/type', 'MenuController@getTypeOfMenu')->name('type');
+});
+
