@@ -68,7 +68,7 @@
            let treeMenu = $('.dd').nestable('serialize');
             $.ajax({
                 type: "patch",
-                url: "api/v1/change_order",
+                url: "api/v1/change-order",
                 data: { 'tree_menu': treeMenu, 'id': idChangedNode},
                 dataType: "json",
                 success: function (response) {

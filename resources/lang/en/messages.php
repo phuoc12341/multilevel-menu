@@ -32,4 +32,5 @@ return [
     'pick_type_of_menu' => 'Pick Type of Menu',
     'menu_associate' => 'Menu Associate',
     'pick_a_associate' => 'Pick a Associate',
+    'reorder_menus_success' => 'Successfully reorder menu',
 ];

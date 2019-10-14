@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 use App\Services\MenuService;
 use App\Services\PostService;
 use App\Services\PageService;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use App\Models\Menu;
 
 class MenuController extends ApiController
 {
@@ -31,52 +28,34 @@ class MenuController extends ApiController
         $this->pageService = $pageService;
     }
 
-    // public function changeOrderMenu(Request $request)
-    // {
-    //     $arrMenu = $request->tree_menu;
-    //     $listMenu = $this->menuService->index();
-    //     $rootNode = $this->menuService->getRootMenu();
-    //     $this->recursiveBuildTreeMenu($listMenu, $arrMenu, $rootNode);
-
-    //     return response()->json(true);
-    // }
-
-    // public function recursiveBuildTreeMenu(Collection $listMenu, array $arrMenu, Menu $parentNode)
-    // {
-    //     foreach ($arrMenu as $menu) {
-    //         $node = $listMenu->find($menu['id']);
-    //         $node->makeRoot();
-    //         $node->makeChildOf($parentNode);
-
-    //         if (Arr::has($menu, 'children')) {
-    //             $arrayMenu = $menu['children'];
-    //             $this->recursiveBuildTreeMenu($listMenu, $arrayMenu, $node);
-    //         }
-    //     }
-    // }
-
     public function changeOrderMenu(Request $request)
     {
-        $arrMenu = $request->tree_menu;
-        $idChangedNode = $request->id;
-        $this->menuService->changeOrderMenu($arrMenu, $idChangedNode);
+        $data = $request->only(['tree_menu', 'id']);
 
-        return response()->json($arrMenu);
+        return $this->doAction(function () use ($data) {
+            $arrMenu = $data['tree_menu'];
+            $idChangedNode = $data['id'];
+            $this->menuService->changeOrderMenu($arrMenu, $idChangedNode);
+            $this->compacts['data'] = [];
+            $this->compacts['description'] = __('messages.reorder_menus_success');
+        }, __('update'));
     }
 
     public function getTypeOfMenu(Request $request)
     {
-        $typeOfMenu = $request->type;
-        $test = [];
-        if ($typeOfMenu == config('common.menu.type.post')) {
-            $test = $this->postService->index(['id', 'title']);
-            $test = $test->pluck('title', 'id');
-        }
-        if ($typeOfMenu == config('common.menu.type.page')) {
-            $test = $this->pageService->index(['id', 'name']);
-            $test = $test->pluck('name', 'id');
-        }
+        $data = $request->only(['type']);
 
-        return response()->json($test);
+        return $this->doAction(function () use ($data) {
+            $this->compacts['data'] = [];
+            if ($data['type'] == config('common.menu.type.post')) {
+                $listPost = $this->postService->index(['id', 'title']);
+                $this->compacts['data'] = $listPost->pluck('title', 'id');
+            }
+
+            if ($data['type'] == config('common.menu.type.page')) {
+                $listPage = $this->pageService->index(['id', 'name']);
+                $this->compacts['data'] = $listPage->pluck('name', 'id');
+            }
+        });
     }
 }
