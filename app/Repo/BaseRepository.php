@@ -91,7 +91,7 @@ class BaseRepository implements BaseRepositoryInterface
     public function findBySlug(string $slug, array $columns = ['*'])
     {
         return $this->model->where('slug', $slug)
-            ->get($columns);
+            ->first($columns);
     }
 
     /**

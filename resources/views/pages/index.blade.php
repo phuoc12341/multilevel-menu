@@ -61,7 +61,7 @@
     
 @endsection
 
-@section('script')
+@push('script')
     <script>
         var baseActionDelete = $('#deleteForm').attr('action');
         $('.deleteButton').click(function() {
@@ -73,4 +73,4 @@
             modalData.text(formName)
         });
     </script>
-@endsection
+@endpush

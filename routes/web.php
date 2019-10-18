@@ -16,3 +16,5 @@ Route::get('/', 'HomeController@index');
 Route::resource('menus', 'MenuController');
 Route::resource('posts', 'PostController');
 Route::resource('pages', 'PageController');
+
+Auth::routes();

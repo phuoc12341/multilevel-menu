@@ -19,3 +19,6 @@ yarn-error.log
 /public/js/
 /public/bower_components/
 /public/ckfinder/
+/public/photos/
+/public/skins/
+/resources/views/vendor/
