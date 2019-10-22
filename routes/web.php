@@ -16,3 +16,7 @@ Route::get('/', 'HomeController@index');
 Route::resource('menus', 'MenuController');
 Route::resource('posts', 'PostController');
 Route::resource('pages', 'PageController');
+
+Route::get('export', 'ExportController@export')->name('export');
+Route::get('importExportView', 'ImportController@importExportView');
+Route::post('import', 'ImportController@import')->name('import');;
