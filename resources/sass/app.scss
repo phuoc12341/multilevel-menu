@@ -1,25 +1,15 @@
-//
-.container {
-    margin-top: 20% !important; 
-}
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import '~@fortawesome/fontawesome-free/css/all';
 
-.locale {
-    height: 50px;
-    margin-left: 20px;
-}
+// Variables
+@import 'variables';
 
-.cover-locale {
-    justify-content: flex-end;
-}
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
 
-.dd {
-    width: 100%;
-}
+@import '~tinymce/skins/ui/oxide/skin.min.css';
+@import '~tinymce/skins/ui/oxide/content.min.css';
+@import '~tinymce/skins/content/default/content.css';
 
-.containActionUpdateDelete {
-    float: right;
-}
-
-.dd-handle {
-    height: 60px !important; 
-}
+@import 'custom';

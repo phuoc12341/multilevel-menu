@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="/bower_components/nestable2/jquery.nestable.css">
 @endsection
 
-@section('script')
+@push('script')
     <script src="/bower_components/nestable2/jquery.nestable.js"></script>
     <script type="text/javascript">
         var idChangedNode = null
@@ -93,4 +93,4 @@
         });
 
     </script>
-@endsection
+@endpush
