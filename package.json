@@ -27,6 +27,8 @@
     },
     "dependencies": {
         "jqeury": "0.0.1-security",
-        "nestable2": "^1.6.0"
+        "laravel-echo": "^1.6.1",
+        "nestable2": "^1.6.0",
+        "pusher-js": "^5.0.2"
     }
 }

@@ -18,3 +18,7 @@ Route::resource('posts', 'PostController');
 Route::resource('pages', 'PageController');
 
 Auth::routes();
+
+Route::get('exports', 'EmployeeController@export')->name('export');
+Route::get('importExportViews', 'EmployeeController@importExportView');
+Route::post('imports', 'EmployeeController@import')->name('import');;
