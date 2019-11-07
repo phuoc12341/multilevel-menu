@@ -10,11 +10,13 @@
     "require": {
         "php": "^7.2",
         "baum/baum": "~1.1",
-        "ckeditor/ckeditor": "dev-full/latest",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^5.8.9",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.8",
+        "mavinoo/laravel-batch": "^2.1",
+        "predis/predis": "^1.1",
+        "pusher/pusher-php-server": "^4.0",
         "unisharp/laravel-filemanager": "~1.8"
     },
     "require-dev": {
@@ -39,6 +41,9 @@
         "psr-4": {
             "App\\": "app/"
         },
+        "files": [
+            "app/Helpers/helpers.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"

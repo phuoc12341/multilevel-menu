@@ -23,6 +23,14 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repo\PageRepositoryInterface::class,
             \App\Repo\PageRepository::class,
         ],
+        'employee' => [
+            \App\Repo\EmployeeRepositoryInterface::class,
+            \App\Repo\EmployeeRepository::class,
+        ],
+        'unit' => [
+            \App\Repo\UnitRepositoryInterface::class,
+            \App\Repo\UnitRepository::class,
+        ],
     ];
     
     /**

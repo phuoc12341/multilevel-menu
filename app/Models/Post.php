@@ -8,7 +8,6 @@ use App\Models\Menu;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Post extends Model
 {
     use SoftDeletes;
